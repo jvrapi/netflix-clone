@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TmdbData, TmdbDataItem } from 'types/Tmdb'
+import { TmdbData, TmdbDataItem, TmdbDataItemResult } from 'types/Tmdb'
 
 type HomeList = {
   slug: string
@@ -87,6 +87,29 @@ const Tmdb = {
         )
       }
     ]
+  },
+  getMovieInfo: async (
+    movieId: number,
+    type: string
+  ): Promise<TmdbDataItemResult> => {
+    let info = {}
+
+    if (movieId) {
+      switch (type) {
+        case 'movie':
+          info = await basicFetch(
+            `/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`
+          )
+          break
+
+        case 'tv':
+          info = await basicFetch(
+            `/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`
+          )
+          break
+      }
+    }
+    return info as TmdbDataItemResult
   }
 }
 

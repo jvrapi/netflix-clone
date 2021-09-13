@@ -24,5 +24,5 @@ export type TmdbDataItem = {
 export type TmdbData = {
   slug: string
   title: string
-  items: TmdbDataItem[]
+  items: TmdbDataItem
 }

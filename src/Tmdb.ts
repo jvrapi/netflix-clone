@@ -1,11 +1,5 @@
 import axios from 'axios'
-import { TmdbData, TmdbDataItem, TmdbDataItemResult } from 'types/Tmdb'
-
-type HomeList = {
-  slug: string
-  title: string
-  items(): Promise<void>
-}
+import { TmdbDataItem, TmdbDataItemResult } from 'types/Tmdb'
 
 const API_KEY = '298552175d308a93f6f32f7635448c9e'
 const API_BASE = 'https://api.themoviedb.org/3'

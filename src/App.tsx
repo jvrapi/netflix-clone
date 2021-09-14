@@ -6,6 +6,7 @@ import { Tmdb } from 'Tmdb'
 import { TmdbData, TmdbDataItemResult } from 'types/Tmdb'
 import './styles/global.css'
 import { Footer } from 'Components/Footer'
+import { setTimeout } from 'timers'
 
 const App: React.FC = () => {
   const [movieList, setMovieList] = useState<TmdbData[]>([])
@@ -28,7 +29,6 @@ const App: React.FC = () => {
       const chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
       setFeaturedData(chosenInfo)
     }
-
     loadAll()
   }, [])
 
@@ -59,6 +59,14 @@ const App: React.FC = () => {
         ))}
       </section>
       <Footer />
+      {movieList.length <= 0 && (
+        <div className="loading">
+          <img
+            src="https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif"
+            alt="Carregando"
+          />
+        </div>
+      )}
     </div>
   )
 }

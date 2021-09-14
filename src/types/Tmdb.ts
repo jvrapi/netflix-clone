@@ -2,9 +2,9 @@ type Genre = {
   id: number
   name: string
 }
-// Dados recebidos quando faz a request para obter a lista de filmes
-export type TmdbDataItemResultBase = {
-  backdrop_path?: string
+
+export type TmdbDataItemResult = {
+  backdrop_path: string
   first_air_date: string
   genre_ids: number[]
   id: number
@@ -17,12 +17,10 @@ export type TmdbDataItemResultBase = {
   poster_path: string
   vote_average: number
   vote_count: number
-}
-
-// Dados recebidos quando faz a request dos detalhes
-export type TmdbDataItemResult = TmdbDataItemResultBase & {
-  number_of_seasons?: number
-  genres?: Genre[]
+  number_of_seasons: number
+  genres: Genre[]
+  original_title: string
+  title: string
 }
 
 export type TmdbDataItem = {

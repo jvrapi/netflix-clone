@@ -5,6 +5,7 @@ import { Header } from './Components/Header'
 import { Tmdb } from 'Tmdb'
 import { TmdbData, TmdbDataItemResult } from 'types/Tmdb'
 import './styles/global.css'
+import { Footer } from 'Components/Footer'
 
 const App: React.FC = () => {
   const [movieList, setMovieList] = useState<TmdbData[]>([])
@@ -57,6 +58,7 @@ const App: React.FC = () => {
           <ListMovies key={key} title={item.title} items={item.items} />
         ))}
       </section>
+      <Footer />
     </div>
   )
 }

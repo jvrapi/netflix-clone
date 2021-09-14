@@ -27,14 +27,22 @@ const FeaturedMovie: React.FC<Props> = ({ item }) => {
           <div className="featured--info">
             <div className="featured--points">{item.vote_average} pontos</div>
             <div className="featured--year">{firstDate.getFullYear()}</div>
-            <div className="featured--season">
+            <div className="featured--seasons">
               {item.number_of_seasons} temporada
               {item.number_of_seasons !== 1 && 's'}
             </div>
             <div className="featured--description">{item.overview}</div>
-            <div className="featured--butons">
-              <a href={`/watch/${item.id}`}>► Assistir</a>
-              <a href={`/list/add/${item.id}`}>+ Minha Lista</a>
+            <div className="featured--buttons">
+              <a href={`/watch/${item.id}`} className="featured--watchButton">
+                {' '}
+                ► Assistir
+              </a>
+              <a
+                href={`/list/add/${item.id}`}
+                className="featured--myListButton"
+              >
+                + Minha Lista
+              </a>
             </div>
             <div className="featured--genres">
               <strong>Gêneros: {genres.join(', ')}</strong>

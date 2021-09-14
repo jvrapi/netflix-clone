@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ListMovies } from 'Components/ListMovies'
 import { FeaturedMovie } from 'Components/FeaturedMovie'
+import { Header } from './Components/Header'
 import { Tmdb } from 'Tmdb'
 import { TmdbData, TmdbDataItemResult } from 'types/Tmdb'
 import './styles/global.css'
@@ -30,6 +31,7 @@ const App: React.FC = () => {
 
   return (
     <div className="page">
+      <Header />
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="lists">
         {movieList.map((item, key) => (

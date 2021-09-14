@@ -10,7 +10,7 @@ type Props = {
 }
 
 const ListMovies: React.FC<Props> = ({ title, items }) => {
-  const [scrollX, setScrollX] = useState(-400)
+  const [scrollX, setScrollX] = useState(0)
 
   const handleLeftArrow = () => {
     // empurra a lista para a direita

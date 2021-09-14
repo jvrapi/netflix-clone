@@ -13,9 +13,9 @@ const FeaturedMovie: React.FC<Props> = ({ item }) => {
   item.genres?.forEach(({ name }) => genres.push(name))
 
   const limitOverview = (overview: string) => {
-    const length = 370
+    const length = 200
     if (overview.length > length) {
-      return overview.slice(0, length) + '...'
+      return overview.substring(0, length) + '...'
     }
     return overview
   }

@@ -6,7 +6,6 @@ import { Tmdb } from 'Tmdb'
 import { TmdbData, TmdbDataItemResult } from 'types/Tmdb'
 import './styles/global.css'
 import { Footer } from 'Components/Footer'
-import { setTimeout } from 'timers'
 
 const App: React.FC = () => {
   const [movieList, setMovieList] = useState<TmdbData[]>([])

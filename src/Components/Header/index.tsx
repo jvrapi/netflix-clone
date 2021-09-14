@@ -1,9 +1,13 @@
 import React from 'react'
 import './styles.css'
 
-const Header: React.FC = () => {
+type Props = {
+  changeHeaderColor: boolean
+}
+
+const Header: React.FC<Props> = ({ changeHeaderColor }) => {
   return (
-    <header>
+    <header className={`${changeHeaderColor && 'header--changeBackground'}`}>
       <div className="header--logo">
         <a href="/">
           <img

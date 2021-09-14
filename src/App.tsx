@@ -12,6 +12,8 @@ const App: React.FC = () => {
     null
   )
 
+  const [changeHeaderColor, setChangeHeaderColor] = useState(false)
+
   useEffect(() => {
     const loadAll = async () => {
       const list = await Tmdb.getHomeList()
@@ -29,9 +31,26 @@ const App: React.FC = () => {
     loadAll()
   }, [])
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setChangeHeaderColor(true)
+      } else {
+        setChangeHeaderColor(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      // remove o evento quando sai da pagina
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
+
   return (
     <div className="page">
-      <Header />
+      <Header changeHeaderColor={changeHeaderColor} />
       {featuredData && <FeaturedMovie item={featuredData} />}
       <section className="lists">
         {movieList.map((item, key) => (

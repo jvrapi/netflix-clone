@@ -9,6 +9,12 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
+  background: transparent;
+  transition: all ease 0.5s;
+}
+
+header.header--changeBackground{
+  background-color: #141414;
 }
 
 .header--logo{
